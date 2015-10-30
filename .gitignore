@@ -1,5 +1,7 @@
 MANIFEST
 .DS_Store
 .ipynb_checkpoints
+*.pyc
+*.html
 *.tar.gz
 .idea

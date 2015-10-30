@@ -61,18 +61,32 @@ class FeatureExtractor(object):
         result = []
 
 
-        global printed
-        if not printed:
-            print("This is not a very good feature extractor!")
-            printed = True
+        # global printed
+        # if not printed:
+        #     print("This is not a very good feature extractor!")
+        #     printed = True
 
         # an example set of features:
         if stack:
             stack_idx0 = stack[-1]
             token = tokens[stack_idx0]
+
+            # Adding STK[0] FORM(word) feature...
             if FeatureExtractor._check_informative(token['word'], True):
                 result.append('STK_0_FORM_' + token['word'])
 
+            # Adding STK[0] Lemma(lemma) feature...
+            if FeatureExtractor._check_informative(token['lemma'], True):
+                result.append('STK_0_LEMMA_' + token['lemma'])
+
+            # Adding STK[0] POSTAG(tag) feature...
+            if FeatureExtractor._check_informative(token['tag'], True):
+                result.append('STK_0_POSTAG_' + token['tag'])
+
+            # STK1 POSTAG
+            FeatureExtractor.extract_stk_features(tokens, stack, result)
+
+            # Adding STK[0] FEATS(feats) feature...
             if 'feats' in token and FeatureExtractor._check_informative(token['feats']):
                 feats = token['feats'].split("|")
                 for feat in feats:
@@ -89,9 +103,23 @@ class FeatureExtractor(object):
         if buffer:
             buffer_idx0 = buffer[0]
             token = tokens[buffer_idx0]
+
+            # Adding BUF[0] FORM(word) feature...
             if FeatureExtractor._check_informative(token['word'], True):
                 result.append('BUF_0_FORM_' + token['word'])
 
+            # Adding BUF[0] Lemma(lemma) feature...
+            if FeatureExtractor._check_informative(token['lemma'], True):
+                result.append('BUF_0_LEMMA_' + token['lemma'])
+
+            # Adding BUF[0] POSTAG(tag) feature...
+            if FeatureExtractor._check_informative(token['tag'], True):
+                result.append('BUF_0_POSTAG_' + token['tag'])
+
+            # BUF1,2,3 POSTAG
+            FeatureExtractor.extract_buf_features(tokens, buffer, result)
+
+            # Adding BUF[0] FEATS(feats) feature...
             if 'feats' in token and FeatureExtractor._check_informative(token['feats']):
                 feats = token['feats'].split("|")
                 for feat in feats:
@@ -105,3 +133,24 @@ class FeatureExtractor(object):
                 result.append('BUF_0_RDEP_' + dep_right_most)
 
         return result
+
+    @staticmethod
+    def extract_stk_features(tokens, stack, result):
+
+        if len(stack) > 1:
+            stack_idx1 = stack[-2]
+            token = tokens[stack_idx1]
+            if FeatureExtractor._check_informative(token['tag'], True):
+                result.append('STK_1_POSTAG_' + token['tag'])
+
+    @staticmethod
+    def extract_buf_features(tokens, buffer, result):
+
+        for i in range(1, 4):
+            if len(buffer) > i:
+                buffer_idx = buffer[i]
+                token = tokens[buffer_idx]
+                if FeatureExtractor._check_informative(token['tag'], True):
+                    feature_string = 'BUF_{0}_POSTAG_{1}'.format(i, token['tag'])
+                    result.append(feature_string)
+                    # result.append('BUF_1_POSTAG_' + token['tag'])

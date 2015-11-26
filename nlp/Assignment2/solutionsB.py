@@ -1,4 +1,3 @@
-import sys
 import nltk
 import math
 import numpy
@@ -104,7 +103,7 @@ def q2_output(q_values, filename):
 # Note: words that appear exactly 5 times should be considered rare!
 def calc_known(brown_words):
     '''
-    :param brown_words: List of 'sentence words List' [ [], [] .. ]
+7    :param brown_words: List of 'sentence words List' [ [], [] .. ]
     :return:
     '''
     known_words = set([])
@@ -192,12 +191,14 @@ def viterbi(brown_dev_words, taglist, known_words, trigram_p, emission_p):
     :return: list of tagged sentences 'WORD/TAG's separated by spaces terminated by newlines each.
     '''
 
-    tagged = [] # will contain word/tags for each sentence.
+    tagged = []     # will contain word/tags for each sentence.
     taglist.remove(START_SYMBOL)
 
     for sentence_words in brown_dev_words:
 
         # will store the ongoing probabilities.
+        # PM[i][j] stores max path probabilities up to word j for each tag i.
+        # TM[i][j] stores max possible trigram up to word j for each tag i.
         PM, TM, word_tags = numpy.zeros([len(taglist)+2, len(sentence_words)]), defaultdict(dict), []
         PM.fill(float('-inf'))
         word0 = sentence_words[0]   # initial observation.
@@ -210,10 +211,12 @@ def viterbi(brown_dev_words, taglist, known_words, trigram_p, emission_p):
             PM[idx, 0] = trigram_p.get(trigram, LOG_PROB_OF_ZERO) + emission_p.get((word0, tag_0), 0)
 
         # print PM
-        # take care of first word0 tag.
+        # take care of first word0's tag. Using argmax axis=0 for max of each PM 'columns',
+        # using only first column here as this is the first word.
         word_tags.append(word0 + '/' + TM[PM.argmax(axis=0)[0]][0][2])
 
         # for each sentence(starting from the second word..), calculate the most likely tag sequences.
+        # tag0 -> tag(t), tag1 -> tag(t-1), tag2 -> tag(t-2)
         for time, word in enumerate(sentence_words[1:], 1):     # for each matrix column...
             for tag_0_idx, tag_0 in enumerate(taglist, 1):
                 # get the max out of each probability cases.
@@ -228,14 +231,16 @@ def viterbi(brown_dev_words, taglist, known_words, trigram_p, emission_p):
                            + trigram_p.get(tuple(prev_bigram), LOG_PROB_OF_ZERO) \
                            + emission_p.get((word, tag_0),0)
                     probs[tuple(prev_bigram)] = prob
+
                 # find the key,value with max probability and store.
                 max_trigram = max(probs, key=lambda i: probs[i])
                 PM[tag_0_idx, time] = probs[max_trigram]
                 TM[tag_0_idx][time] = max_trigram
 
-            # take care of word tags.
-            if word not in known_words:
+            if word not in known_words: # if the word is rare(<5) then replace with _RARE_ symbol.
                 word = RARE_SYMBOL
+            # take care of word tags, find the trigram with max probability up to current cell and assign it's last tag
+            # to the word as that is the max path.
             word_tags.append(word + '/' + TM[PM.argmax(axis=0)[time]][time][2])
 
         # for each sentence, generate list of max(tag/word)s for each sentence.

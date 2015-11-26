@@ -41,8 +41,6 @@ def calc_probabilities(training_corpus):
     # prepare unigram log probabilities -> P(Wi) = c(Wi) / V
     for unigram, count in unigram_c.iteritems():
         unigram_p[(unigram,)] = math.log(count / float(unigram_len-32491), 2)
-    # for unigram, count in unigram_c.iteritems():
-    #     unigram_p[(unigram,)] = math.log(count / float(unigram_len), 2)
 
     # prepare bigram log probabilities -> P(Wi|Wi-1) = c(Wi-1,Wi)/c(Wi-1)
     for bigram, count in bigram_c.iteritems():

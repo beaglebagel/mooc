@@ -178,7 +178,7 @@ def evaluate(files,test_files,baselines,references,scores):
       print 'Please save your output file', f, 'under Assignment3 directory.'
       continue
       
-    command = "./scorer2 " + f + " " + test_file
+    command = "scorer2 " + f + " " + test_file
     print command
     
     #res = subprocess.check_output(command,shell = True)
@@ -187,6 +187,7 @@ def evaluate(files,test_files,baselines,references,scores):
     except Exception, e:
       res = None
       print 'scorer2 failed for',f
+      sys.exit()
 
     #print res
 
@@ -196,6 +197,7 @@ def evaluate(files,test_files,baselines,references,scores):
         acc = float(res.split('\n')[2].split(' ')[2])
       except Exception, e:
         print 'scorer2 failed for',f
+        sys.exit()
 
     print 'accuracy',acc,
     if acc < baseline:

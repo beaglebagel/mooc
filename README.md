@@ -1,8 +1,8 @@
-# mooc
-Personal Work/Materials for Massive Open Online Courses
+
+#### Massive Open Online Course(Coursera/Edx) Descriptions and Proof of Accomplishments
 
 | Course                                                                                                  | Statement of Accomplishment / Certificates|
-|---------------------------------------------------------------------------------------------------------|------------------------------------------|
+|:---------------------------------------------------------------------------------------------------------|:------------------------------------------:|
 | [Introduction to Big Data with Apache Spark](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Edx%20Introduction%20to%20Big%20Data%20with%20Apache%20Spark.pdf) |
 | [Scalable Machine Learning](https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Edx%20Scalable%20Machine%20Learning.pdf) |
 | [Mining Massive Datasets](https://www.coursera.org/course/mmds)                                         | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20mmds%202015.pdf) |

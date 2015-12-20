@@ -57,14 +57,16 @@ def submit():
 
 def loginPrompt():
   """Prompt the user for login credentials. Returns a tuple (login, password)."""
-  (login, password) = basicPrompt()
-  return login, password
+  return ('jaebin.charade@gmail.com', 'UExnbmPrxu')
+  # (login, password) = basicPrompt()
+  # return login, password
 
 
 def basicPrompt():
   """Prompt the user for login credentials. Returns a tuple (login, password)."""
   login = raw_input('Login (Email address): ')
   password = raw_input('One-time Password (from the assignment page. This is NOT your own account\'s password): ')
+
   return login, password
 
 def partPrompt():
@@ -215,7 +217,7 @@ def evaluate(files,test_files,baselines,references,scores):
 def evaluate_wsd(partIdx):
 
   if partIdx == 0:
-    files = ['KNN-English.answer','KNN-Spanish.answer','KNN-Catalan.answer','SVM-English.answer','SVM-Spanish.answer','SVM-Catalan.answer']
+    files = ['output/KNN-English.answer','output/KNN-Spanish.answer','output/KNN-Catalan.answer','output/SVM-English.answer','output/SVM-Spanish.answer','output/SVM-Catalan.answer']
     #test_files = ['data/English-dev.key data/English.sensemap','data/Spanish-dev.key','data/Catalan-dev.key'] * 2
     test_files = ['data/English-dev.key','data/Spanish-dev.key','data/Catalan-dev.key'] * 2
     baselines = [0.535,0.684,0.678] * 2
@@ -223,7 +225,7 @@ def evaluate_wsd(partIdx):
     scores = [10] * 6
     return evaluate(files,test_files,baselines,references,scores)
   elif partIdx == 1:
-    files = ['Best-English.answer','Best-Spanish.answer','Best-Catalan.answer']
+    files = ['output/Best-English.answer','output/Best-Spanish.answer','output/Best-Catalan.answer']
     #test_files = ['data/English-dev.key data/English.sensemap','data/Spanish-dev.key','data/Catalan-dev.key']
     test_files = ['data/English-dev.key','data/Spanish-dev.key','data/Catalan-dev.key']
     baselines = [0.605,0.785,0.805]

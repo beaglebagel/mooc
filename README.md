@@ -5,6 +5,7 @@
 |:--------:|:-------|:------------------------------------------:|
 || [Introduction to Big Data with Apache Spark](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Edx%20Introduction%20to%20Big%20Data%20with%20Apache%20Spark.pdf) |
 || [Scalable Machine Learning](https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Edx%20Scalable%20Machine%20Learning.pdf) |
+|| [Introduction to Natural Language Processing](https://www.coursera.org/course/nlpintro)                                         | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20nlpintro%202016.pdf) |
 || [Mining Massive Datasets](https://www.coursera.org/course/mmds)                                         | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20mmds%202015.pdf) |
 || [Computer Networks](https://www.coursera.org/course/comnetworks)                                        | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20comnetworks%202015.pdf) |
 || [Analytics Edge](https://www.edx.org/course/analytics-edge-mitx-15-071x-0) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Edx%20The%20Analytics%20Edge.pdf) |

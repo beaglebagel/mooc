@@ -5,4 +5,7 @@ MANIFEST
 *.html
 *.tar.gz
 .idea
+.settings
+.project
+.classpath
 *.exe

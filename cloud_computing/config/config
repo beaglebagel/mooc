@@ -1,0 +1,14 @@
+Host namenode
+  HostName ec2-52-90-85-86.compute-1.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/awskey.pem
+
+Host datanode1
+  HostName ec2-52-90-75-7.compute-1.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/awskey.pem
+
+Host datanode2
+  HostName ec2-54-165-157-110.compute-1.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/awskey.pem

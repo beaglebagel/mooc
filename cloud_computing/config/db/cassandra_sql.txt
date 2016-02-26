@@ -1,0 +1,17 @@
+-- command:
+sudo sh ~/cassandra/bin/cassandra
+sudo sh ~/cassandra/bin/cqlsh --color
+
+-- cql:
+create keyspace aviation with replication = {'class':'SimpleStrategy', 'replication_factor':3};
+describe keyspaces
+sele
+
+-- mrjob:
+python rank_airport.py -r hadoop hdfs:///input/ontime_aggregate_reduced.psv
+
+cat ontime_all.psv | pv | nc -lk 9999
+
+
+sudo apt-get install libev4 libev-dev
+sudo apt-get install build-essential python-dev

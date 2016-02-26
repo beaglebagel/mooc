@@ -1,0 +1,8 @@
+bin/
+build/
+report/
+
+.idea
+.settings
+.project
+.classpath

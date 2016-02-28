@@ -35,5 +35,26 @@
     <name>mapreduce.reduce.java.opts</name>
     <value>-Xmx2048m</value>  
   </property>-->
+  <property>
+    <name>mapreduce.jobhistory.address</name>
+    <value>ec2-52-90-85-86.compute-1.amazonaws.com:10020</value>
+  </property>
+  <property>
+    <name>mapreduce.jobhistory.webapp.address</name>
+    <value>ec2-52-90-85-86.compute-1.amazonaws.com:19888</value>
+  </property>
+  <property>
+    <name>mapreduce.job.reduces</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>mapreduce.map.memory.mb</name>
+    <value>2048</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.memory.mb</name>
+    <value>8192</value>
+  </property>
+
 </configuration>
 

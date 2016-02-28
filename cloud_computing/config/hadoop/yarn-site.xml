@@ -49,5 +49,13 @@
     <value>4</value>
     <description>Ratio between virtual memory to physical memory when setting memory limits for containers</description>
   </property>
+  <property>
+    <name>yarn.nodemanager.remote-app-log-dir</name>
+    <value>/tmp/log</value>
+  </property>  
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
 
 </configuration>

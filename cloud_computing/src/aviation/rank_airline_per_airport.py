@@ -15,19 +15,6 @@ class RankAirlinePerAirport(MRJob):
 
     """
 
-    ARRIVAL_MODE = 'arrival'
-    DEPARTURE_MODE = 'departure'
-
-    # def configure_options(self):
-    #     super(RankAirlinePerAirport, self).configure_options()
-    #     self.add_passthrough_option(
-    #         '--mode', type='str', default='departure', help='rank [arrival/departure] performance')
-    #
-    # def load_options(self, args):
-    #     super(RankAirlinePerAirport, self).load_options(args)
-    #     print 'Loading Options: %s' % self.options
-    #     self.mode = self.options.mode
-
     def mapper(self, _, line):
         # @NOTE: for departure delay, try using dep_delay_min first..
         fields = line.strip().split('|')
@@ -44,7 +31,6 @@ class RankAirlinePerAirport(MRJob):
 
     def reducer(self, key, delays_counts):
         # [airport,airline] -> tuple ( delay_min, 1 )
-        # @TODO: how to sort the output in reverse order?
         total_delay, count = map(sum, zip(*delays_counts))
 
         # [airport,airline] -> average delay_min

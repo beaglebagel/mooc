@@ -32,13 +32,11 @@ class RankAirline(MRJob):
         except Exception as e:
             print airline, delay, e
 
-
     def combiner(self, airline, delays):
 
         yield airline, map(sum, zip(*delays))
 
     def reducer(self, airline, delays):
-        # @TODO: how to sort the output from max to min - reverse order?
 
         total_delay, count = map(sum, zip(*delays))
         yield airline, total_delay / float(count)

@@ -46,7 +46,6 @@ class RankAirport(MRJob):
         yield airport, sum(counts)
 
     def reducer(self, airport, counts):
-        # how to sort the output from max to min.
         yield airport, sum(counts)
 
     def mapper2(self, airport, count):

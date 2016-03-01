@@ -33,7 +33,6 @@ class RankRoute(MRJob):
 
     def reducer(self, route, delays_counts):
         # [origin, destination] -> tuple ( delay_min, 1 )
-        # @TODO: how to sort the output in reverse order?
         total_delay, count = map(sum, zip(*delays_counts))
 
         # [origin, destination] -> average delay_min

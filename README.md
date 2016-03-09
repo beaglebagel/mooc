@@ -13,7 +13,7 @@
 || [Finding Hidden Messages in DNA (Bioinformatics I)](https://www.coursera.org/course/hiddenmessages) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20hiddenmessages%202015.pdf)  |
 || [Genome Sequencing (Bioinformatics II)] (https://www.coursera.org/course/assembly) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20assembly%202015.pdf) |
 || [Comparing Genes, Proteins, and Genomes (Bioinformatics III)](https://www.coursera.org/course/comparinggenomes) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20comparinggenomes%202015.pdf) |
-| [Cloud Computing Specialization](https://www.coursera.org/specializations/cloudcomputing) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera.Cloud.Computing.2016.pdf) |
+| [Cloud Computing Specialization](https://www.coursera.org/specializations/cloudcomputing) | | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera.Cloud.Computing.2016.pdf) |
 || [Cloud Computing Concepts](https://www.coursera.org/course/cloudcomputing) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20cloudcomputing%202015.pdf) |
 || [Cloud Computing Concepts2](https://www.coursera.org/course/cloudcomputing2) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20cloudcomputing2%202015.pdf) |
 || [Cloud Computing Applications](https://www.coursera.org/course/cloudapplications) | [Certificate] (https://github.com/beaglebagel/mooc/blob/master/certificates/Coursera%20cloudapplications%202015.pdf) |
